@@ -1,0 +1,83 @@
+<!doctype html><html lang="zh-CN"><meta charset="UTF-8"><title>梁大戬 & 张小红 · 婚礼邀请函</title><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="梁大戬与张小红诚邀您参加婚礼：2026年12月6日12:08，广西钦州大海猫花园酒店。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="梁大戬 & 张小红 · 婚礼邀请函">
+<meta property="og:description" content="12月6日 12:08｜广西钦州大海猫花园酒店。期待与你相见。">
+<meta property="og:image" content="https://lighter222.github.io/wedding-invite/share.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="800">
+<meta property="og:url" content="https://lighter222.github.io/wedding-invite/">
+<meta name="twitter:card" content="summary_large_image"><style>html,body{margin:0;width:100%;min-height:100%;background:#f5efdf}canvas{display:block;width:100%;height:auto;max-width:750px;margin:0 auto}</style><canvas width="1500" height="2000"></canvas><script>const cfg={"title": "亲密好友版", "color": "#8F2117", "copy": ["平日里的欢笑，想在这一天继续", "我们的婚礼，期待有你在场"]};
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
+const W=1500,H=2000,red='#8F2117',ink='#29251F',gold='#B48A43',bodySize=34;
+let seed=92118;
+function random(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;}
+function stroke(path,color=gold,width=1.5){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineCap='round';ctx.lineJoin='round';ctx.stroke(new Path2D(path));}
+function fill(path,color){ctx.fillStyle=color;ctx.fill(new Path2D(path));}
+function line(x,y,a,b,color=gold,width=1.3){stroke(`M${x} ${y}L${a} ${b}`,color,width);}
+function text(t,x,y,size=36,color=ink,font='SimSun'){ctx.fillStyle=color;ctx.font=`${size}px ${font}`;ctx.textAlign='center';ctx.fillText(t,x,y);}
+function circle(a,b,r,col,w=2){ctx.beginPath();ctx.arc(a,b,r,0,Math.PI*2);ctx.strokeStyle=col;ctx.lineWidth=w;ctx.stroke();}
+function local(a,b,s,fn,rotation=0){ctx.save();ctx.translate(a,b);ctx.rotate(rotation);ctx.scale(s,s);fn();ctx.restore();}
+function heart(a,b,s=1){local(a,b,s,()=>stroke('M0 12C-28 -4 -20 -25 -7 -20Q0 -18 0 -10Q5 -25 17 -18C32 -5 13 6 0 12',gold,1.8));}
+function flourish(a,b,width=200){local(a,b,1,()=>{stroke(`M${-width} 0L-75 0C-50 0 -34 -19 -16 -12C12 0 -2 16 -15 7C-28 -4 -7 -29 7 -14C30 11 46 0 75 0L${width} 0`,gold,1.45);});}
+function label(t,a,b){text(t,a,b,60,red,'KaiTi');}
+function tracked(t,a,b,size,spacing){ctx.font=`${size}px KaiTi`;const chars=[...t],widths=chars.map(v=>ctx.measureText(v).width),width=widths.reduce((v,n)=>v+n,0)+spacing*(chars.length-1);let left=a-width/2;ctx.textAlign='left';ctx.fillStyle=red;chars.forEach((v,i)=>{ctx.fillText(v,left,b);left+=widths[i]+spacing;});ctx.textAlign='center';}
+
+// Fine cotton-paper relief on a lighter, warmer ivory stock.
+const fields=[3,11,37,140].map(step=>{let nx=Math.ceil(W/step)+3,ny=Math.ceil(H/step)+3;return {step,nx,data:Float32Array.from({length:nx*ny},()=>random())};});
+function noise(f,a,b){let u=a/f.step,v=b/f.step,i=u|0,j=v|0;u-=i;v-=j;u=u*u*(3-2*u);v=v*v*(3-2*v);let k=j*f.nx+i;return (f.data[k]*(1-u)+f.data[k+1]*u)*(1-v)+(f.data[k+f.nx]*(1-u)+f.data[k+f.nx+1]*u)*v;}
+const paper=ctx.createImageData(W,H);
+for(let b=0;b<H;b++)for(let a=0;a<W;a++){let n=(noise(fields[0],a,b)-.5)*10+(noise(fields[1],a,b)-.5)*9+(noise(fields[2],a,b)-.5)*3+(noise(fields[3],a,b)-.5)*2+(noise(fields[0],a,b)-noise(fields[0],a+2,b+2))*15+(random()-.5)*5;let i=(b*W+a)*4;paper.data[i]=248+n;paper.data[i+1]=244+n;paper.data[i+2]=234+n;paper.data[i+3]=255;}
+ctx.putImageData(paper,0,0);
+for(let i=0;i<23000;i++){let a=random()*W,b=random()*H,len=2+random()*11;line(a,b,a+len,b-1+random()*2,'rgba(133,111,78,.045)',.65);line(a,b+1,a+len,b+1,'rgba(255,255,255,.21)',.7);}
+
+function icon(type,a,b){local(a,b,1.13,()=>{
+const col=red;
+if(type==='camera'){stroke('M-36 -18L-20 -18L-14 -29L12 -29L19 -18L37 -18Q41 -18 41 -13L41 22Q41 27 36 27L-35 27Q-40 27 -40 22L-40 -13Q-40 -18 -36 -18Z',col,2.3);circle(0,3,17,col,2);circle(0,3,12,gold,1.4);stroke('M-30 -25L-23 -25M26 -9L32 -9M-43 -31L-50 -38M-34 -37L-35 -47M-49 -20L-60 -21',col,1.7);}
+if(type==='rings'){circle(-14,4,23,col,2.3);circle(17,4,23,col,2.3);circle(-14,4,19,gold,1.3);circle(17,4,19,gold,1.3);stroke('M3 -24L12 -35L23 -35L30 -24L17 -14ZM3 -24L30 -24M12 -35L17 -14L23 -35M-25 -30Q-38 -44 -29 -47Q-21 -49 -20 -39Q-12 -49 -7 -42Q-4 -37 -25 -30',col,1.8);}
+if(type==='meal'){stroke('M-42 24L42 24M-37 18Q-34 -18 0 -20Q34 -18 37 18ZM-45 29L45 29M-28 13Q-25 -10 -9 -12',col,2.2);circle(0,-25,5,col,1.8);}
+});}
+
+const photo=new Image(),sea=new Image();
+function ready(image,src){return new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=reject;image.src=src;});}
+Promise.all([ready(photo,'asset-1.jpg'),ready(sea,'asset-2.jpg')]).then(()=>{
+// Large KaiTi title, fine gold flourishes, and asymmetric two-column layout.
+tracked('婚礼请柬',750,210,116,36);
+stroke('M115 260C280 222 440 282 592 264Q651 257 710 265M790 265Q848 257 908 264C1074 284 1228 225 1385 260',gold,1.6);
+heart(750,263,1.03);
+
+// Approved headroom image, scaled proportionally and aligned to the top.
+ctx.save();ctx.shadowColor='rgba(112,84,45,.12)';ctx.shadowBlur=14;ctx.shadowOffsetY=5;
+ctx.beginPath();ctx.roundRect(80,345,650,928,[210,210,18,18]);ctx.fillStyle='#FFFCF5';ctx.fill();ctx.restore();
+ctx.save();ctx.beginPath();ctx.roundRect(94,369,622,879,[198,198,8,8]);ctx.clip();ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(photo,94,369,622,622*photo.naturalHeight/photo.naturalWidth);ctx.restore();
+ctx.beginPath();ctx.roundRect(78,343,654,932,[211,211,19,19]);ctx.lineWidth=1.5;ctx.strokeStyle='#B48A43';ctx.stroke();
+
+// Names directly below the portrait, followed by three centered invitation lines.
+text('新郎',242,1350,bodySize,ink);text('新娘',572,1350,bodySize,ink);
+text('梁大戬',242,1410,52,ink,'KaiTi');text('张小红',572,1410,52,ink,'KaiTi');
+text('诚邀您见证我们的幸福时刻',405,1530,44,ink,'KaiTi');
+text(cfg.copy[0],405,1650,bodySize,ink);
+text(cfg.copy[1],405,1730,bodySize,ink);
+
+label('婚礼日期',1124,411);
+text('2026年12月6日',1124,510,bodySize,ink);
+text('12时08分',1124,571,bodySize,ink);
+text('农历十月廿八（星期日）',1124,636,bodySize,ink);
+flourish(1124,770,236);
+
+label('婚礼流程',1124,930);
+const stages=[['签到合影','10:30','camera'],['婚礼仪式','12:08','rings'],['婚礼午宴','12:30','meal']];
+stages.forEach((s,i)=>{let a=930+i*195;icon(s[2],a,1040);text(s[0],a,1119,bodySize,ink);text(s[1],a,1172,bodySize,ink);});
+line(987,1043,1064,1043,'#9B8870',1.4);line(1182,1043,1259,1043,'#9B8870',1.4);
+flourish(1124,1275,236);
+
+label('婚礼地点',1124,1450);
+text('大海猫花园酒店',1124,1538,bodySize,ink);
+text('宴会大厅',1124,1595,bodySize,ink);
+text('钦州市子材西大街马道路111号',1124,1662,bodySize,ink);
+
+// Subtle ink contours with two small seagulls and a pale sun above the sea.
+ctx.drawImage(sea,815,1645,640,640*sea.naturalHeight/sea.naturalWidth);
+document.body.dataset.ready='true';
+});
+</script></html>
